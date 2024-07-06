@@ -25,7 +25,7 @@ export default function RootLayout({
       <body
         className={classNames(
           "min-h-screen bg-dark-300 font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
         )}
       >
         <ThemeProvider
