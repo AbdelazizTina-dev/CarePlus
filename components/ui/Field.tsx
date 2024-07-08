@@ -52,7 +52,6 @@ const RenderField = ({
           <PhoneInput
             defaultCountry="US"
             international
-            countryCallingCodeEditable={false}
             value={field.value}
             onChange={field.onChange}
             className="input-phone"
