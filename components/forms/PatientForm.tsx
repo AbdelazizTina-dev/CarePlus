@@ -1,8 +1,7 @@
 "use client";
-import { users } from "@/lib/appwrite.config";
+import { createUser } from "@/lib/actions/patient.actions";
 import { UserFormValidation } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ID } from "node-appwrite";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "../ui/button";
@@ -25,20 +24,7 @@ export const PatientForm = () => {
   });
 
   function onSubmit(values: z.infer<typeof UserFormValidation>) {
-    users
-      .create(
-        ID.unique(),
-        values["email"],
-        values["phone"],
-        undefined,
-        values["name"]
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    createUser(values);
   }
 
   return (
